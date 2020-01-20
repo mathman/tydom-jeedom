@@ -9,6 +9,6 @@
 	"hasDependency" : false,
 	"hasOwnDeamon" : true,
 	"maxDependancyInstallTime" : 0,
-	"changelog" : "https://jeedom.github.io/plugin-template/#language#/changelog",
-	"documentation" : "https://jeedom.github.io/plugin-template/#language#/"
+	"changelog" : "https://github.com/mathman/Tydom",
+	"documentation" : "https://github.com/mathman/Tydom"
 }
