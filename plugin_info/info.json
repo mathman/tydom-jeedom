@@ -1,0 +1,14 @@
+{
+	"id" : "tydom",
+	"name" : "tydom",
+	"description" : "Plugin pour utiliser Tydom",
+	"licence" : "AGPL",
+	"author" : "Mathman",
+	"require" : "3.2",
+	"category" : "automation protocol",
+	"hasDependency" : false,
+	"hasOwnDeamon" : true,
+	"maxDependancyInstallTime" : 0,
+	"changelog" : "https://jeedom.github.io/plugin-template/#language#/changelog",
+	"documentation" : "https://jeedom.github.io/plugin-template/#language#/"
+}
