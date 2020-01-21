@@ -246,7 +246,7 @@ class tydom extends eqLogic {
 			$i++;
 		}
 		if ($i >= 30) {
-			log::add('tydom', 'error', 'Impossible de lancer le démon tydom, relancer le démon en debug et vérifiez la log', 'unableStartDeamon');
+			log::add('tydom', 'error', 'Impossible de lancer le démon tydom', 'unableStartDeamon');
 			return false;
 		}
 		message::removeAll('tydom', 'unableStartDeamon');
@@ -272,6 +272,26 @@ class tydom extends eqLogic {
 		} catch (\Exception $e) {
 			
 		}
+	}
+	
+	public static function dependancy_info($_refresh = false) {
+		$return = array();
+		$return['log'] = 'tydom_update';
+		$return['progress_file'] = jeedom::getTmpFolder('tydom') . '/dependance';
+		$return['state'] = (self::compilationOk()) ? 'ok' : 'nok';
+		return $return;
+	}
+
+	public static function dependancy_install() {
+		log::remove(__CLASS__ . '_update');
+		return array('script' => dirname(__FILE__) . '/../../resources/install_#stype#.sh ' . jeedom::getTmpFolder('tydom') . '/dependance', 'log' => log::getPathToLog(__CLASS__ . '_update'));
+	}
+	
+	public static function compilationOk() {
+		if (shell_exec('ls /usr/bin/node 2>/dev/null | wc -l') == 0) {
+			return false;
+		}
+		return true;
 	}
 
     /*     * *********************Méthodes d'instance************************* */
